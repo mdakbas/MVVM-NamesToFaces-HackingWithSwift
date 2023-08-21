@@ -24,7 +24,6 @@ final class HomeVC: UIViewController {
         viewModel.viewDidLoad()
         addButton()
     }
-    
 }
 
 extension HomeVC: HomeVCProtocol {
@@ -64,9 +63,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
-        
-        
-        
         let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
@@ -77,8 +73,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
-    
-    
 }
 
 extension HomeVC: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -95,7 +89,6 @@ extension HomeVC: UIImagePickerControllerDelegate & UINavigationControllerDelega
         if let jpegData =  image.jpegData(compressionQuality: 0.8) {
             try? jpegData.write(to: imagePath)
         }
-        
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
         reloadCollectionView()

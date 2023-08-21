@@ -15,7 +15,6 @@ protocol HomeViewModelProtocol {
 
 final class HomeViewModel {
     weak var view: HomeVCProtocol?
-    
 }
 
 extension HomeViewModel: HomeViewModelProtocol {
